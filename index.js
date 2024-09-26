@@ -30,7 +30,7 @@ app.use(express.json())
 app.use(cookieParser())
 
 app.use(cors({
-    origin: "https://study-notion-backend-g3fb.onrender.com",
+    origin: "https://study-notion-frontend-theta-six.vercel.app",
     credentials: true,
     maxAge: 14400,
 }))
