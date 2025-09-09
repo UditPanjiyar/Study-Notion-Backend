@@ -8,7 +8,7 @@ const { convertSecondsToDuration } = require("../utils/secToDuration");
 const CourseProgress = require("../models/CourseProgress");
 const Section = require("../models/Section");
 const SubSection = require("../models/SubSection");
-const RatingAndReviews = require("../models/RatingAndReviews")
+const RatingAndReviews = require("../models/RatingAndReviews");
 
 // 1.a createCourse handler function
 // exports.createCourse = async (req, res) => {
@@ -269,9 +269,9 @@ exports.getCourseDetails = async (req, res) => {
       })
       .populate("category")
       .populate({
-        "path": "ratingAndReviews",
+        path: "ratingAndReviews",
         populate: {
-          path: "user"
+          path: "user",
         },
       })
       .populate({
@@ -421,7 +421,7 @@ exports.deleteCourse = async (req, res) => {
       // const [courseProgressArray] = userDetails.courseProgress;
       // for(const courseProgressId of courseProgressArray)
       // {
-      //   await CourseProgress.findByIdAndDelete(courseProgressId, {courseID : courseId}) 
+      //   await CourseProgress.findByIdAndDelete(courseProgressId, {courseID : courseId})
       // }
 
     }
@@ -463,7 +463,7 @@ exports.deleteCourse = async (req, res) => {
     });
 
 
-
+    
     return res.status(200).json({
       success: true,
       message: "Course deleted successfully",
